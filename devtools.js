@@ -1,15 +1,11 @@
 /// uDevTools.js
 window.addEventListener("keyup", event => {
-  // Check if Ctrl + ` (backtick) is pressed
   if (event.ctrlKey && event.which === 192) {
-    // Dynamically load the Eruda script
-    const script = document.createElement('script');
-    script.src = "//cdn.jsdelivr.net/npm/eruda";
-    document.body.appendChild(script);
-
-    // Initialize Eruda once the script has loaded
-    script.onload = function () {
-      eruda.init();
-    };
+    let defaultCode = "(function () { var script = document.createElement('script'); script.src='//cdn.jsdelivr.net/npm/eruda'; document.body.appendChild(script); script.onload = function () { eruda.init() } })();";
+    let code = prompt("Eval:", defaultCode);
+    if (code.startsWith("javascript:")) {
+      code = code.substring(11);
+    }
+    eval(code);
   }
 });
