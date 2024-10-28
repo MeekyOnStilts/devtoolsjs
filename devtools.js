@@ -1,13 +1,13 @@
 /// uDevTools.js
 window.addEventListener("keyup", event => {
-  // Check if Ctrl + backtick (`)
-  if (event.ctrlKey && event.key === "`") {
-    // Dynamically create a script element and load Eruda
+  // Check if Ctrl + ` (backtick) is pressed
+  if (event.ctrlKey && event.which === 192) {
+    // Dynamically load the Eruda script
     const script = document.createElement('script');
     script.src = "//cdn.jsdelivr.net/npm/eruda";
     document.body.appendChild(script);
-    
-    // Initialize Eruda when the script is loaded
+
+    // Initialize Eruda once the script has loaded
     script.onload = function () {
       eruda.init();
     };
