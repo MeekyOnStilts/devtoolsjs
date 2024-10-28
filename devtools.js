@@ -39,7 +39,7 @@
                 document.body.appendChild(e);
 
             document.addEventListener("keydown", function(t) {
-                if (t.ctrlKey && t.altKey && t.key === "~") {
+                if (t.ctrlKey && t.altKey && t.which === 192) {
                     this();
                 }
             }.bind(t.toggle_chii));
